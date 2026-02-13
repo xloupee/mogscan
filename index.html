@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mogscan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand-wrap">
+        <h1 class="brand">mogscan</h1>
+        <div class="credit-pill">
+          <span class="credit-dot"></span>
+          <span>$84.42</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#" class="active">Trades</a>
+        <a href="#">Tokens</a>
+        <a href="#">Leaderboard</a>
+        <button class="pump-pill">Pump app</button>
+      </nav>
+
+      <div class="toolbar">
+        <button class="icon-btn" aria-label="Search">⌕</button>
+        <button class="wallet-btn">Connect Wallet</button>
+        <button class="icon-btn" aria-label="Settings">⚙</button>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="board-head">
+        <div>
+          <h2>MOG Leaderboard</h2>
+          <p class="board-sub">Click any row to open full trait sheet</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Leaderboard period">
+          <button role="tab" aria-selected="true" data-period="daily" class="is-active">Daily</button>
+          <button role="tab" aria-selected="false" data-period="weekly">Weekly</button>
+          <button role="tab" aria-selected="false" data-period="monthly">Monthly</button>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div id="leaderboard" class="leaderboard" aria-live="polite"></div>
+
+        <aside class="promo-card">
+          <h3>Pump Leaderboard</h3>
+          <div class="qr-box" aria-hidden="true">
+            <div class="qr-pattern"></div>
+          </div>
+          <p>Scan to download app</p>
+          <button class="learn-btn">Learn more</button>
+        </aside>
+      </section>
+    </main>
+
+    <template id="row-template">
+      <article class="row">
+        <div class="row-left">
+          <span class="rank"></span>
+          <div class="avatar"></div>
+          <div class="identity">
+            <div class="name"></div>
+            <div class="handle"></div>
+          </div>
+        </div>
+
+        <div class="row-right">
+          <div class="ratio"><span class="pos"></span> / <span class="neg"></span></div>
+          <div class="score"></div>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
