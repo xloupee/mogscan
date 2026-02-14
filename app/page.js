@@ -30,10 +30,11 @@ export default function HomePage() {
         </div>
 
         <nav className="main-nav" aria-label="Primary">
-          <a href="/" className="active">
+          <Link href="/" className="active">
             Leaderboard
-          </a>
-          <a href="/news">News</a>
+          </Link>
+          <Link href="/news">News</Link>
+          <Link href="/mogmap">MogMap</Link>
         </nav>
 
       </header>

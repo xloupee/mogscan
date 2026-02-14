@@ -735,3 +735,257 @@ body {
 .audio-toggle:hover {
   border-color: #4a4a4a;
 }
+
+.news-head h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+}
+
+.news-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.news-list {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.news-card {
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #151515 0%, #0f0f0f 100%);
+  padding: 14px;
+}
+
+.news-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.news-card p {
+  margin: 0 0 10px;
+  color: #c7c7c7;
+  line-height: 1.35;
+}
+
+.news-card a {
+  color: #f2f2f2;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.news-card a:hover {
+  text-decoration: underline;
+}
+
+.mogmap-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 14px;
+  align-items: start;
+}
+
+.map-card {
+  border: 1px solid #2f2f2f;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
+  padding: 10px;
+}
+
+.us-map {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.state-shape {
+  fill: #1c2738;
+  stroke: #3b4d66;
+  stroke-width: 0.8;
+  cursor: pointer;
+  transition: fill 120ms ease, stroke 120ms ease;
+}
+
+.state-shape.hovered {
+  fill: #32588a;
+}
+
+.state-shape.selected {
+  fill: #3fbd69;
+  stroke: #82dea0;
+}
+
+.state-shape:focus-visible {
+  outline: none;
+  filter: brightness(1.15);
+}
+
+.map-info-card {
+  border: 1px solid #323232;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #151515 0%, #0f0f0f 100%);
+  padding: 14px;
+}
+
+.map-info-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.map-info-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.map-info-line {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid #2f2f2f;
+  border-radius: 10px;
+  background: #111111;
+  padding: 9px 10px;
+}
+
+.map-info-line + .map-info-line {
+  margin-top: 8px;
+}
+
+.map-info-line span {
+  color: #a7a7a7;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 700;
+}
+
+.map-info-line strong {
+  margin-top: 2px;
+  font-size: 1rem;
+}
+
+.x-preview-wrap {
+  display: grid;
+  gap: 8px;
+}
+
+.x-preview-url {
+  color: #63a6ff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  word-break: break-all;
+}
+
+.x-preview-url:hover {
+  text-decoration: underline;
+}
+
+.x-preview-card {
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  border: 1px solid #2f3440;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1f2229;
+}
+
+.x-preview-accent {
+  background: #31a8ff;
+}
+
+.x-preview-body {
+  padding: 12px 12px 10px;
+}
+
+.x-preview-body h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.x-preview-body p {
+  margin: 8px 0 10px;
+  color: #e6e8ec;
+  font-size: 1.13rem;
+  line-height: 1.28;
+}
+
+.tweet-embed {
+  width: 100%;
+  min-height: 520px;
+  border: 1px solid #373b45;
+  border-radius: 8px;
+  background: #000;
+}
+
+.tweet-media-loading {
+  width: 100%;
+  min-height: 220px;
+  border: 1px solid #373b45;
+  border-radius: 8px;
+  background: #171a21;
+  color: #b9bfcc;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+.tweet-media-image {
+  width: 100%;
+  display: block;
+  border: 1px solid #373b45;
+  border-radius: 8px;
+  background: #000;
+}
+
+.tweet-media-video {
+  width: 100%;
+  display: block;
+  border: 1px solid #373b45;
+  border-radius: 8px;
+  background: #000;
+}
+
+.x-preview-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: #c9ced8;
+  font-weight: 600;
+}
+
+.x-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #444a57;
+  background: #111318;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 780px) {
+  .mogmap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tweet-embed {
+    min-height: 420px;
+  }
+
+  .x-preview-body h2 {
+    font-size: 1.15rem;
+  }
+
+  .x-preview-body p {
+    font-size: 1rem;
+  }
+}

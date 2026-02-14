@@ -168,6 +168,69 @@ export const profiles = [
     ],
   },
   {
+    name: "Clav Body Guard Joe",
+    slug: "clav-body-guard-joe",
+    image: "/profiles/clav-body-guard-joe.png",
+    handle: "candid frame check",
+    score: 66.4,
+    elite: 8,
+    total: 15,
+    traits: [
+      "Canthal tilt: neutral to slightly positive",
+      "Scleral show: normal",
+      "Eye area support: looks average",
+      "Eye harmony: balanced with face",
+      "Gonial angle: ~125-130° estimate",
+      "Jawline visibility: medium",
+      "Chin projection: appears proportional",
+      "Cheekbone projection: hard to judge",
+      "Facial thirds: generally balanced",
+      "Midface ratio: average",
+      "Symmetry read: normal",
+      "Bridge: looks straight",
+      "Tip projection: moderate (proportional)",
+      "Nose harmony: fits face well",
+      "Lip fullness: medium (balanced)",
+      "Neutral expression: slightly tense/candid",
+      "Philtrum ratio: normal",
+      "Hairline: looks solid",
+      "Cut/style: simple",
+      "Hair density: appears normal",
+    ],
+  },
+  {
+    name: "Asu freshman",
+    slug: "asu-freshman",
+    image: "/profiles/asu-freshman.png",
+    handle: "freshman smile buff",
+    score: 73.8,
+    elite: 10,
+    total: 18,
+    traits: [
+      "Canthal tilt: slightly positive (~+2°)",
+      "Scleral show: normal",
+      "Eye spacing: balanced",
+      "Expression: smile boosts perception",
+      "Gonial angle (jaw): ~125-128°",
+      "Jaw visibility: moderate",
+      "Chin projection: solid",
+      "Cheekbone projection: moderate",
+      "Facial thirds: slight lower-third dominance",
+      "Midface ratio: average",
+      "Symmetry read: good but not elite",
+      "Bridge: straight",
+      "Tip: rounded",
+      "Nose harmony: fits face well",
+      "Lip fullness: medium",
+      "Philtrum: normal",
+      "Skin clarity: looks clear",
+      "Facial leanness: moderate",
+      "Hair density: good",
+      "Style: casual, not optimized",
+      "Hairline: solid",
+    ],
+  },
+  {
     name: "Neutral Baseline",
     slug: "neutral-baseline",
     image: "/profiles/neutral-baseline.png",
@@ -201,13 +264,15 @@ export function initials(name) {
 }
 
 export function tier(score) {
-  if (score >= 95) return "S+";
-  if (score >= 88) return "S";
-  if (score >= 78) return "A";
-  if (score >= 68) return "B";
-  return "C";
+  if (score >= 96) return "TERA CHAD";
+  if (score >= 92) return "GIGA CHAD";
+  if (score >= 86) return "CHAD";
+  if (score >= 80) return "NORMIE CHAD";
+  if (score >= 72) return "NORMIE";
+  if (score >= 64) return "CHUD";
+  return "GOBLINCHAD";
 }
 
 export function formatScore(score) {
-  return `+${score.toFixed(2)} MOG (${tier(score)}-tier)`;
+  return `+${score.toFixed(2)} MOG (${tier(score)})`;
 }
