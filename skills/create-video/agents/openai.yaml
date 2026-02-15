@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Video"
+  short_description: "Scaffold video projects with npx create-video@latest"
+  default_prompt: "Use this skill when a user wants to create a new video project via npx create-video@latest and set it up non-interactively."

@@ -95,7 +95,7 @@ const profiles = [
   },
   {
     name: "marlon",
-    handle: "friendly hunter-eye hybrid",
+    handle: "hunter-eye hybrid",
     score: 89.7,
     elite: 16,
     total: 20,

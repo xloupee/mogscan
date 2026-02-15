@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SiteBrand from "../components/site-brand";
 import UsMap from "./us-map";
 
 export default function MogMapPage() {
@@ -8,16 +9,12 @@ export default function MogMapPage() {
       <div className="bg-orb orb-2" aria-hidden="true" />
 
       <header className="topbar">
-        <div className="brand-wrap">
-          <h1 className="brand">mogscan</h1>
-        </div>
+        <SiteBrand />
 
         <nav className="main-nav" aria-label="Primary">
           <Link href="/">Leaderboard</Link>
           <Link href="/news">News</Link>
-          <Link href="/mogmap" className="active">
-            MogMap
-          </Link>
+          <Link href="/faq">FAQ</Link>
         </nav>
       </header>
 

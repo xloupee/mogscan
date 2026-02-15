@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 
 function toMediaPayload(id, payload) {
+  const text = String(payload?.text || "").trim();
   const detail = Array.isArray(payload?.mediaDetails) ? payload.mediaDetails[0] : null;
   if (!detail) {
-    return { type: "none" };
+    return { type: "none", text };
   }
 
   if (detail.type === "photo") {
@@ -11,6 +12,7 @@ function toMediaPayload(id, payload) {
       type: "photo",
       imageUrl: detail.media_url_https || detail.media_url || "",
       alt: payload?.text || "Tweet image",
+      text,
     };
   }
 
@@ -25,10 +27,11 @@ function toMediaPayload(id, payload) {
       videoUrl: mp4?.url || "",
       poster: detail.media_url_https || detail.media_url || "",
       fallbackUrl: `https://x.com/i/videos/tweet/${id}`,
+      text,
     };
   }
 
-  return { type: "none" };
+  return { type: "none", text };
 }
 
 export async function GET(request) {
@@ -60,6 +63,6 @@ export async function GET(request) {
       headers: { "Cache-Control": "public, max-age=300" },
     });
   } catch {
-    return NextResponse.json({ type: "none" }, { status: 200 });
+    return NextResponse.json({ type: "none", text: "" }, { status: 200 });
   }
 }

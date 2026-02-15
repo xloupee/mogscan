@@ -1,23 +1,25 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { formatScore, initials, multipliers, profiles } from "./lib/leaderboard";
+import SiteBrand from "./components/site-brand";
+import { formatScore, initials } from "./lib/leaderboard";
+import { listProfiles } from "./lib/profiles-store";
 
-export default function HomePage() {
-  const [period, setPeriod] = useState("daily");
+export const dynamic = "force-dynamic";
 
-  const ranked = useMemo(() => {
-    const factor = multipliers[period] ?? 1;
-    return profiles
-      .map((profile) => ({
-        ...profile,
-        adjusted: profile.score * factor,
-        losses: Math.max(profile.total - profile.elite, 0),
-      }))
-      .sort((a, b) => b.adjusted - a.adjusted);
-  }, [period]);
+function uppercaseFirst(value) {
+  const text = String(value || "");
+  if (!text) return text;
+  return `${text.charAt(0).toUpperCase()}${text.slice(1)}`;
+}
+
+export default async function HomePage() {
+  const ranked = (await listProfiles())
+    .map((profile) => ({
+      ...profile,
+      adjusted: profile.score,
+      losses: Math.max(profile.total - profile.elite, 0),
+    }))
+    .sort((a, b) => b.adjusted - a.adjusted);
 
   return (
     <>
@@ -25,18 +27,15 @@ export default function HomePage() {
       <div className="bg-orb orb-2" aria-hidden="true" />
 
       <header className="topbar">
-        <div className="brand-wrap">
-          <h1 className="brand">mogscan</h1>
-        </div>
+        <SiteBrand />
 
         <nav className="main-nav" aria-label="Primary">
           <Link href="/" className="active">
             Leaderboard
           </Link>
           <Link href="/news">News</Link>
-          <Link href="/mogmap">MogMap</Link>
+          <Link href="/faq">FAQ</Link>
         </nav>
-
       </header>
 
       <main className="page">
@@ -44,23 +43,6 @@ export default function HomePage() {
           <div>
             <h2>MOG Leaderboard</h2>
             <p className="board-sub">Click any row to open profile page</p>
-          </div>
-
-          <div className="tabs" role="tablist" aria-label="Leaderboard period">
-            {Object.keys(multipliers).map((tab) => {
-              const active = tab === period;
-              return (
-                <button
-                  key={tab}
-                  role="tab"
-                  aria-selected={active}
-                  className={active ? "is-active" : ""}
-                  onClick={() => setPeriod(tab)}
-                >
-                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                </button>
-              );
-            })}
           </div>
         </section>
 
@@ -85,16 +67,14 @@ export default function HomePage() {
                       )}
                     </div>
                     <div className="identity">
-                      <div className="name">{profile.name}</div>
+                      <div className="name">{uppercaseFirst(profile.name)}</div>
                       <div className="handle">{profile.handle}</div>
                     </div>
                   </div>
 
                   <div className="row-right">
-                    <div className="ratio">
-                      <span className="pos">{profile.elite}</span> / <span className="neg">{profile.losses}</span>
-                    </div>
-                    <div className="score">{formatScore(profile.adjusted)}</div>
+                    <div className="ratio">PSL {profile.score.toFixed(1)}</div>
+                    <div className="score">{formatScore(profile.adjusted, profile.rankLabel, profile.slug)}</div>
                   </div>
                 </article>
               </Link>
